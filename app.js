@@ -12,10 +12,35 @@ async function appInfo(){
  start();
 }
 function ready(){statusCard.innerHTML="<h2>Sistema listo</h2><p>Esperando código QR...</p>";}
-async function start(){
- scanner=new Html5Qrcode("qr-reader");
- await scanner.start({facingMode:"environment"},{fps:10,qrbox:250},onScan,()=>{});
- isScanning=true;
+async function start() {
+    scanner = new Html5Qrcode("qr-reader");
+    const cameras = await Html5Qrcode.getCameras();
+    let cameraId = null;
+    if (cameras.length > 0) {
+        const rear =
+            cameras.find(c =>
+                /back|rear|environment/i.test(c.label)
+            );
+        cameraId = rear
+            ? rear.id
+            : cameras[0].id;
+    }
+    await scanner.start(
+        cameraId,
+        {
+            fps: 20,
+            qrbox: {
+                width: 320,
+                height: 320
+            },
+            aspectRatio: 1,
+            rememberLastUsedCamera: true,
+            disableFlip: false
+        },
+        onScan,
+        () => {}
+    );
+    isScanning = true;
 }
 async function onScan(text){
  if(!isScanning)return;

@@ -1,5 +1,152 @@
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f5f7}.app{max-width:900px;margin:auto;padding:40px}header{text-align:center;margin-bottom:40px}#qr-reader{max-width:500px;margin:auto}#status-card{background:#fff;border-radius:12px;padding:40px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.15);margin-top:20px}
+*{
+    box-sizing:border-box;
+}
 
-text-align:center;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f5f7;
+    color:#222;
+}
+
+.app{
+    max-width:900px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+#title{
+    margin:0;
+    font-size:2rem;
+}
+
+#version{
+    color:#666;
+    font-size:.9rem;
+}
+
+#scanner-container{
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+#qr-reader{
+    width:100%;
+    max-width:500px;
+    border-radius:12px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+#status-card{
+    background:white;
+    border-radius:12px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    min-height:180px;
+}
+
+#status-card h2{
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+#status-card p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+.actions{
+    margin-top:20px;
+    text-align:center;
+}
+
+#continue-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px 30px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#continue-btn:hover:not(:disabled){
+
+    background:#15803d;
+
+    transform:translateY(-1px);
+
+}
+
+#continue-btn:disabled{
+
+    background:#9ca3af;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+@media (max-width:768px){
+
+    .app{
+
+        padding:20px 15px;
+
+    }
+
+    #title{
+
+        font-size:1.6rem;
+
+    }
+
+    #status-card{
+
+        padding:20px;
+
+    }
+
+    #status-card p{
+
+        font-size:16px;
+
+    }
+
+    #continue-btn{
+
+        width:100%;
+
+        font-size:17px;
+
+    }
 
 }
